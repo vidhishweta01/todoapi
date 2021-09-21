@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-    SECRETS = 'my$ecretK3y'.freeze
+  SECRETS = 'my$ecretK3y'.freeze
 
   def user?(user)
     if user
@@ -31,4 +31,3 @@ class ApplicationController < ActionController::API
     e
   end
 end
-
