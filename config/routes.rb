@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :items
-  resources :todos
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      post '/login', to: 'sessions#login'
+      post 'registeration', to: 'sessions#registeration'
+      resources :todos do
+        resources :items
+      end
+    end
+  end
 end
