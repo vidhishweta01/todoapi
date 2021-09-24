@@ -2,8 +2,7 @@ module Api
   module V1
     class TodosController < ApplicationController
       before_action :auth
-      before_action :set_todo, only: %i[show update destroy]
-
+      
       # GET /todos
       def index
         @todos = Todo.all
@@ -21,7 +20,7 @@ module Api
         @todo = Todo.new(todo_params)
 
         if @todo.save
-          render json: @todo, status: :created, location: @todo
+          render json: @todo, status: :created
         else
           render json: @todo.errors, status: :unprocessable_entity
         end

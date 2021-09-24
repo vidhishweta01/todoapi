@@ -2,7 +2,6 @@ module Api
   module V1
     class ItemsController < ApplicationController
       before_action :auth
-      before_action :set_item, only: %i[show update destroy]
 
       # GET /items
       def index
@@ -21,7 +20,7 @@ module Api
         @item = Item.new(item_params)
 
         if @item.save
-          render json: @item, status: :created, location: @item
+          render json: @item, status: :created
         else
           render json: @item.errors, status: :unprocessable_entity
         end
