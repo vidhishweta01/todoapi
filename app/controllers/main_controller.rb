@@ -1,7 +1,3 @@
 class MainController < ActionController::Base
-  def index
-    @users = User.all
-
-        render json: @users
-  end
+  def index; end
 end

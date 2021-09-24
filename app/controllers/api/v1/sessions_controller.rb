@@ -21,6 +21,24 @@ module Api
           render json: { error: new_user.errors.full_messages }
         end
       end
+
+      def forgotPassword
+        @user = User.find_by(email: params[:email])
+        if @user
+          @user.update(password: params[:password], password_confirmation: params[:password_confirmation])
+          if @user.save
+            token = encrypt({ user_id: @user })
+          render json: { token: token } 
+          end
+        else
+          render json: { error: 'invalid user or password' }
+        end
+      end
+
+      def users
+        @users = User.all
+        render json: @users
+      end
     end
   end
 end

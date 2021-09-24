@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       post '/login', to: 'sessions#login'
       post 'registeration', to: 'sessions#registeration'
+      post 'forgotPassword', to: 'sessions#forgotPassword'
+      get 'users', to: 'sessions#users'
       resources :todos do
         resources :items
       end
