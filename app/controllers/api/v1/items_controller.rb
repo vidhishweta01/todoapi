@@ -2,11 +2,12 @@ module Api
   module V1
     class ItemsController < ApplicationController
       before_action :auth
+      before_action :set_item, only: %i[show update destroy]
 
       # GET /items
       def index
+        @todo = Todo.find(params[:todo_id])
         @items = Item.all
-
         render json: @items
       end
 
@@ -37,7 +38,11 @@ module Api
 
       # DELETE /items/1
       def destroy
-        @item.destroy
+        if @item.destroy
+          render json: { message: 'Item has been deleted successfully' }, status: :ok
+        else
+          render json: { error: 'Something went wrong please try again!' }, status: :unprocessable_entity
+        end
       end
 
       private

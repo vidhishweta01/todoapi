@@ -7,4 +7,6 @@ class User < ApplicationRecord
     message: 'must be at least 6 characters and include one number and one letter.',
     multiline: true
   }
+
+  has_many :todos
 end
