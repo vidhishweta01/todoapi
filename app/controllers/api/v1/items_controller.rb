@@ -54,7 +54,7 @@ module Api
 
       # Only allow a list of trusted parameters through.
       def item_params
-        params.require(:item).permit(:name, :description, :proirity, :priority, :completed, :todo_id)
+        params.require(:item).permit(:name, :description, :priority, :done, :todo_id)
       end
     end
   end
