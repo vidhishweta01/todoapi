@@ -2,7 +2,7 @@
 TodoApi is a Rest API with JWT-TOKEN authentication user can sign in and do any of the CRUD operations for todo and items model.
 It can be used as a back end for any todo front end.
 
-[!E-R Digram](./Docs/ER.png)
+[E-R Digram](./Docs/ER.png)
 
 ## Built With
 - rails API
