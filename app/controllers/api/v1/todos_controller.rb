@@ -1,9 +1,10 @@
+# rubocop:disable Style/GuardClause
 module Api
   module V1
     class TodosController < ApplicationController
       before_action :auth
       before_action :set_todo, only: %i[show update destroy]
-      
+
       # GET /todos
       def index
         if current_user
@@ -60,3 +61,5 @@ module Api
     end
   end
 end
+
+# rubocop:enable Style/GuardClause
